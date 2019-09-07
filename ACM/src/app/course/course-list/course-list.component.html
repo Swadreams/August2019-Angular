@@ -27,7 +27,7 @@
                     </td>
                     <td>{{course.courseName | uppercase}}</td>
                     <td>{{course.nextBatchDate | date: 'dd-MMM-yyyy'}}</td>
-                    <td>{{course.price | currency : 'INR' : true : '3.2-3'}}</td>
+                    <td>{{course.price | currency : 'INR' : 'symbol' : '3.2-3'}}</td>
                     <td>{{course.starRating}}</td>
                 </tr>
             </tbody>
