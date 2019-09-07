@@ -7,8 +7,10 @@
             <thead class="thead-dark">
                 <tr>
                 <th>
-                    <button class="btn btn-warning" (click)="showImage()"> Show</button>
-                    Image
+                    <button class="btn btn-warning"
+                            (click)="showImage()"> {{imageVisible ? 'Hide' : 'Show'}}
+                            Image
+                    </button>
                 </th>
                 <th>Course Name</th>
                 <th>Next Batch Date</th>
@@ -19,7 +21,9 @@
             <tbody>
                 <tr *ngFor="let course of courses">
                     <td>
-                        <img [src]="course.imageUrl" width="60" *ngIf="imageVisible">
+                        <img [src]="course.imageUrl"
+                              width="60"
+                              *ngIf="imageVisible">
                     </td>
                     <td>{{course.courseName}}</td>
                     <td>{{course.nextBatchDate}}</td>

@@ -117,6 +117,7 @@ export class CourseListComponent implements OnInit {
 
   showImage() {
     this.imageVisible = !this.imageVisible;
+
   }
 
 }
