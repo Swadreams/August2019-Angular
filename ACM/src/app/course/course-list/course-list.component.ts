@@ -15,7 +15,16 @@ export class CourseListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.courses = this.courseService.getCourses();
+    //this.courses = this.courseService.getCourses();
+    this.courseService.getCourses()
+        .subscribe(
+          response => {
+            this.courses = response;
+          },
+          error => {
+            console.log('Error occured', error);
+          }
+        )
   }
 
   showImage() {
