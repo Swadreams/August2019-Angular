@@ -4,20 +4,23 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CourseModule } from './course/course.module';
-// import { StarComponent } from './shared/star/star.component';
+import { HeaderComponent } from './header/header.component';
+import { AppRoutingModule } from './app-routing.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    // StarComponent
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
-    CourseModule
+    CourseModule,
+    AppRoutingModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent],
-  // exports: [ StarComponent ]
 })
 export class AppModule { }

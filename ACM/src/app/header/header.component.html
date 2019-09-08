@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <!-- Brand/logo -->
+    <a class="navbar-brand" href="#">
+        <h5> ACM </h5>
+    </a>
+        <!-- Links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link"
+               [routerLink]="['/home']"
+               [routerLinkActive]="'active'">
+            Home
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"
+               [routerLink]="['/courses']"
+               [routerLinkActive]="'active'">
+            Courses
+            </a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link">Add Course</a>
+        </li>
+    </ul>
+</nav>

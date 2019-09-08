@@ -33,7 +33,9 @@
                     <td>{{course.price | currency : 'INR' : 'symbol' : '3.2-3'}}</td>
                     <td>
                         <!-- {{course.starRating}} -->
-                        <app-star [rating]="course.starRating" (starClicked)="ratingRecieved($event)"></app-star>
+                        <app-star [rating]="course.starRating"
+                                  (starClicked)="ratingRecieved($event)">
+                        </app-star>
                     </td>
                 </tr>
             </tbody>
