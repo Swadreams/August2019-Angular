@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class CourseService {
-  coursesUrl = 'https://32423raw.githubusercontent.com/Swadreams/July-2019/courses-data/courses.json';
+  coursesUrl = 'https://raw.githubusercontent.com/Swadreams/July-2019/courses-data/courses.json';
 
   constructor(private http: HttpClient) { }
 

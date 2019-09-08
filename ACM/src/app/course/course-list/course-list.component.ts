@@ -10,6 +10,7 @@ export class CourseListComponent implements OnInit {
 
   imageVisible = false;
   courses;
+  message: string;
 
   constructor(private courseService: CourseService) {
   }
@@ -30,6 +31,10 @@ export class CourseListComponent implements OnInit {
   showImage() {
     this.imageVisible = !this.imageVisible;
 
+  }
+
+  ratingRecieved(event) {
+    this.message = event;
   }
 
 }

@@ -1,6 +1,9 @@
 <div class="card">
     <div class="card-header">
-        <h3>Course List</h3>
+        <div class="row">
+            <h3 class="col-sm-8">Course List</h3>
+            <div class="col-sm-4"> {{message}} </div>
+        </div>
     </div>
     <div class="card-body">
         <table class="table">
@@ -28,7 +31,10 @@
                     <td>{{course.courseName | uppercase}}</td>
                     <td>{{course.nextBatchDate | date: 'dd-MMM-yyyy'}}</td>
                     <td>{{course.price | currency : 'INR' : 'symbol' : '3.2-3'}}</td>
-                    <td>{{course.starRating}}</td>
+                    <td>
+                        <!-- {{course.starRating}} -->
+                        <app-star [rating]="course.starRating" (starClicked)="ratingRecieved($event)"></app-star>
+                    </td>
                 </tr>
             </tbody>
         </table>
