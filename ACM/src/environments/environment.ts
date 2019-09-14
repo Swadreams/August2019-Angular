@@ -4,15 +4,6 @@
 
 export const environment = {
   production: false,
-  firebaseConfig: {
-    apiKey: "AIzaSyAFy8JoUr1u7U-ygoTUGbhMb4UNzwubvsw",
-    authDomain: "aug-acm.firebaseapp.com",
-    databaseURL: "https://aug-acm.firebaseio.com",
-    projectId: "aug-acm",
-    storageBucket: "",
-    messagingSenderId: "983437521569",
-    appId: "1:983437521569:web:e2f3e0b7c13767170436e0"
-  }
 };
 
 /*
