@@ -15,4 +15,8 @@ export class AuthService {
   signup() {
 
   }
+
+  logout() {
+    return this.appAuth.auth.signOut();
+  }
 }
