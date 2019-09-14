@@ -7,6 +7,7 @@ import { CourseModule } from './course/course.module';
 import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { RouterModule } from '@angular/router';
   imports: [
     BrowserModule,
     CourseModule,
+    AdminModule,
     AppRoutingModule,
     RouterModule
   ],
