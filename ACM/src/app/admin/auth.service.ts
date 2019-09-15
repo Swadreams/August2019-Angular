@@ -24,4 +24,8 @@ export class AuthService {
     return this.appAuth.authState;
   }
 
+  isLoggedInState() {
+    return this.appAuth.auth.currentUser;
+  }
+
 }
