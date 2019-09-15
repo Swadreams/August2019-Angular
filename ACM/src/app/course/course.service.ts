@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 @Injectable({
   providedIn: 'root'
@@ -7,9 +8,19 @@ import { HttpClient } from '@angular/common/http';
 export class CourseService {
   coursesUrl = 'https://raw.githubusercontent.com/Swadreams/July-2019/courses-data/courses.json';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private db: AngularFireDatabase) { }
+
+  getCourses1() {
+    return this.http.get(this.coursesUrl)
+  }
 
   getCourses() {
-    return this.http.get(this.coursesUrl)
+    return this.db.list('/courses').snapshotChanges();
+        // .subscribe(
+        //   response => {
+        //     console.log('Courses Data Response ', response)
+        //   },
+        //   error => console.log('error', error)
+        // )
   }
 }

@@ -20,7 +20,13 @@ export class CourseListComponent implements OnInit {
     this.courseService.getCourses()
         .subscribe(
           response => {
-            this.courses = response;
+            var coursesData = [];
+            response.forEach(
+              course => {
+                coursesData.push(course.payload.val());
+              }
+            );
+            this.courses = coursesData;
           },
           error => {
             console.log('Error occured', error);
