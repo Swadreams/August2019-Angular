@@ -19,4 +19,9 @@ export class AuthService {
   logout() {
     return this.appAuth.auth.signOut();
   }
+
+  isLoggedIn() {
+    return this.appAuth.authState;
+  }
+
 }
