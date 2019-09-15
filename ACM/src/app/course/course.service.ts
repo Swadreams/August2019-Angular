@@ -8,7 +8,11 @@ import { AngularFireDatabase } from 'angularfire2/database';
 export class CourseService {
   coursesUrl = 'https://raw.githubusercontent.com/Swadreams/July-2019/courses-data/courses.json';
 
-  constructor(private http: HttpClient, private db: AngularFireDatabase) { }
+  constructor(
+    private http: HttpClient,
+    private db: AngularFireDatabase) {
+
+  }
 
   getCourses1() {
     return this.http.get(this.coursesUrl)
@@ -16,11 +20,9 @@ export class CourseService {
 
   getCourses() {
     return this.db.list('/courses').snapshotChanges();
-        // .subscribe(
-        //   response => {
-        //     console.log('Courses Data Response ', response)
-        //   },
-        //   error => console.log('error', error)
-        // )
+  }
+
+  getCourse(id) {
+    return this.db.object(`/courses/${id}`).valueChanges();
   }
 }

@@ -22,7 +22,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let course of courses">
+                <tr *ngFor="let course of courses"
+                    (click)="showCourseDetails(course.courseId)">
                     <td>
                         <img [src]="course.imageUrl"
                               width="60"
