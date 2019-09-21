@@ -5,7 +5,6 @@ import { AngularFireAuth } from 'angularfire2/auth';
   providedIn: 'root'
 })
 export class AuthService {
-
   constructor(private appAuth: AngularFireAuth) { }
 
   login(param) {
