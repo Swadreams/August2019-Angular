@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -26,6 +27,7 @@ import { environment } from 'src/environments/environment';
     AdminModule,
     AppRoutingModule,
     RouterModule,
+    BrowserAnimationsModule,
 
     /* Modules related to firebase */
     AngularFireAuthModule,
