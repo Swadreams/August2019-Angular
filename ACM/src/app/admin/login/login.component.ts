@@ -10,25 +10,29 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   email: string;
   password: string;
+  errorMessage;
 
   constructor(private auth: AuthService, private route: Router) { }
 
   ngOnInit() {
   }
 
-  signIn() {
-    var param = {
-      email: this.email,
-      pswd: this.password
-    };
-    this.auth.login(param)
+  signIn(param) {
+    // console.log(form.value);
+    // var param = {
+    //   email: this.email,
+    //   pswd: this.password
+    // };
+    console.log(param);
+    this.auth.login(param.value)
         .then(
           response => {
             console.log('Login Response', response);
             this.route.navigate(['/home']);
           },
           error => {
-            console.log('Error occured', error)
+            console.log('Error occured', error);
+            this.errorMessage = error.message;
           }
         )
   }
