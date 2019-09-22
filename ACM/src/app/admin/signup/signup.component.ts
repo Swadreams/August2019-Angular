@@ -12,7 +12,7 @@ export class SignupComponent implements OnInit {
   form;
   successMessage;
   errorMessage;
-  error;
+  error = {};
 
   constructor(private fb: FormBuilder, private authService: AuthService) { }
 
@@ -46,6 +46,21 @@ export class SignupComponent implements OnInit {
               this.errorMessage = error.message;
             }
         )
+  }
+
+  validate(controlName) {
+    let control = this.sForm[controlName];
+    if(!control.pristine && !control.value) {
+      this.error[controlName] = `${controlName} is required.`;
+    } else if(control.errors && control.errors.space) {
+      this.error[controlName] = `${controlName} can not contain space.`;
+    } else if(control.errors && control.errors.email) {
+      this.error[controlName] = `${controlName} address is invalid.`;
+    } else if(control.errors && control.errors.minlength) {
+      this.error[controlName] = `${controlName} must contain minimum ${control.errors.minlength.requiredLength} characters.`;
+    } else {
+      this.error[controlName] = null;
+    }
   }
 
 }

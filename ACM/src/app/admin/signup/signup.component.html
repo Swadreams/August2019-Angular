@@ -16,8 +16,9 @@
                      class="form-control"
                      id="email"
                      placeholder="Enter email address"
-                     formControlName="email">
-                <div class="alert alert-danger" *ngIf="!sForm.email?.pristine && !sForm.email?.value">
+                     formControlName="email"
+                     (change)="validate('email')">
+                <!-- <div class="alert alert-danger" *ngIf="!sForm.email?.pristine && !sForm.email?.value">
                     Email address is required.
                 </div>
                 <div class="alert alert-danger" *ngIf="sForm.email.errors?.email">
@@ -25,6 +26,9 @@
                 </div>
                 <div class="alert alert-danger" *ngIf="sForm.email.errors?.space">
                     Email can not contain space.
+                </div> -->
+                <div class="alert alert-danger" *ngIf="this.error?.email">
+                    {{this.error?.email}}
                 </div>
             </div>
             <div class="form-group">
@@ -33,7 +37,11 @@
                      class="form-control"
                      id="pwd"
                      placeholder="Enter password"
-                     formControlName="pswd">
+                     formControlName="pswd"
+                     (change)="validate('pswd')">
+                <div class="alert alert-danger" *ngIf="this.error?.pswd">
+                    {{this.error?.pswd}}
+                </div>
             </div>
             <div class="text-center">
                 <button type="submit" class="btn btn-primary acm-button">Submit</button>
