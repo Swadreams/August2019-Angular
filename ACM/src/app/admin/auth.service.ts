@@ -11,8 +11,8 @@ export class AuthService {
     return this.appAuth.auth.signInWithEmailAndPassword(param.email, param.pswd);
   }
 
-  signup() {
-
+  signup(param) {
+    return this.appAuth.auth.createUserWithEmailAndPassword(param.email, param.pswd);
   }
 
   logout() {
