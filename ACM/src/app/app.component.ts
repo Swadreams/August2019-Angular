@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
         .subscribe(
             response => {
               if(response) {
+                // this.router.navigate(['courses/edit/4']);
                 this.router.navigate(['home']);
                 this.isLoggedIn = true;
               } else {

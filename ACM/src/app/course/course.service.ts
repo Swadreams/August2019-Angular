@@ -25,4 +25,16 @@ export class CourseService {
   getCourse(id) {
     return this.db.object(`/courses/${id}`).valueChanges();
   }
+
+  udpateCourse(course, courseId) {
+    return this.db.object(`/courses/${courseId}`).update(course);
+  }
+
+  addCourse(course) {
+    return this.db.list(`/courses`).push(course);
+  }
+
+  deleteCourse(courseId) {
+    return this.db.object(`/courses/${courseId}`).remove();
+  }
 }

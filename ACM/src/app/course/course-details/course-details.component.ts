@@ -27,7 +27,7 @@ export class CourseDetailsComponent implements OnInit {
     this.courseService.getCourse(this.courseId)
         .subscribe(
           response => {
-            this.course = response
+            this.course = response;
             console.log(this.course);
           }
         )
@@ -37,4 +37,17 @@ export class CourseDetailsComponent implements OnInit {
     this.router.navigate(['/courses']);
   }
 
+  deleteCourse() {
+    alert('This will remove the course form server.');
+    this.courseService.deleteCourse(this.courseId)
+        .then(
+          response => {
+            alert('Course deleted successfully. Enjoy!');
+            this.router.navigate(['/courses']);
+          },
+          error => {
+            console.log('error', error);
+          }
+        )
+  }
 }

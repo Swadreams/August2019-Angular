@@ -1,0 +1,93 @@
+<div class="card">
+    <div class="card-header">
+        <h2> {{!isNewCourse ? 'Edit' : 'Add'}} Course</h2>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="courseForm" (ngSubmit)="submitForm()">
+            <div class="row">
+                    <div class="col-sm-3"> Course Name :</div>
+                    <div class="col-sm-5">
+                        <input type="text"
+                                class="form-control"
+                                formControlName="courseName">
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3"> Course Code :</div>
+                    <div class="col-sm-5">
+                        <input type="text"
+                                class="form-control"
+                                formControlName="courseCode">
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3"> Course Description :</div>
+                    <div class="col-sm-5">
+                        <input type="text"
+                                class="form-control"
+                                formControlName="description">
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3"> Image Url :</div>
+                    <div class="col-sm-5">
+                        <input type="text"
+                                class="form-control"
+                                formControlName="imageUrl">
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3"> Next Batch Date :</div>
+                    <div class="col-sm-5">
+                        <input type="text"
+                                class="form-control"
+                                formControlName="nextBatchDate">
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3"> Price :</div>
+                    <div class="col-sm-5">
+                        <input type="text"
+                                class="form-control"
+                                formControlName="price">
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3"> Star Rating :</div>
+                    <div class="col-sm-5">
+                        <input type="text"
+                                class="form-control"
+                                formControlName="starRating">
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3"> Trainer :</div>
+                    <div class="col-sm-5">
+                        <input type="text"
+                                class="form-control"
+                                formControlName="trainer">
+                    </div>
+                </div>
+                <hr>
+                <div>
+                    <button class="btn btn-primary"
+                            type="submit">
+                            {{isNewCourse ? 'Add' : 'Update'}} course
+                    </button>
+                </div>
+        </form>
+    </div>
+    <div class="card-footer text-right">
+        <button class="btn btn-primary acm-button mr-3"> Back </button>
+    </div>
+</div>
+
+
+<!-- http://localhost:4200/courses/edit/2 -->

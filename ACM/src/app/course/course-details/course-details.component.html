@@ -70,7 +70,7 @@
 
     <div class="card-footer text-right">
         <button class="btn btn-primary acm-button mr-3" (click)="navigateToCourses()"> Back </button>
-        <button class="btn btn-warning acm-button mr-3"> Edit </button>
-        <button class="btn btn-danger acm-button"> Delete </button>
+        <button class="btn btn-warning acm-button mr-3" [routerLink]="['/courses/edit', this.courseId]"> Edit </button>
+        <button class="btn btn-danger acm-button" (click)="deleteCourse()"> Delete </button>
     </div>
 </div>
