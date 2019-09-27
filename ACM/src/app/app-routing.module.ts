@@ -8,6 +8,9 @@ import { CourseDetailsComponent } from './course/course-details/course-details.c
 import { AuthGuard } from './shared/auth.guard';
 import { SignupComponent } from './admin/signup/signup.component';
 import { EditCourseComponent } from './course/edit-course/edit-course.component';
+import { CourseDetailsAdvanceComponent } from './course/course-details/course-details-advance/course-details-advance.component';
+import { CourseDetailsBasicComponent } from './course/course-details/course-details-basic/course-details-basic.component';
+import { CourseDetailsResolver } from './course/course-details/course-details.resolver.service';
 
 
 const Routes = [
@@ -15,7 +18,14 @@ const Routes = [
   { path: 'signup', component: SignupComponent},
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
   { path: 'courses', component: CourseListComponent, canActivate: [AuthGuard]},
-  { path: 'courses/details/:id', component: CourseDetailsComponent, canActivate: [AuthGuard]},
+  { path: 'courses/details/:id', component: CourseDetailsComponent, canActivate: [AuthGuard],
+    resolve: {resolvedData: CourseDetailsResolver},
+    children: [
+      { path: '', redirectTo: 'basic', pathMatch: 'full'},
+      { path: 'basic', component: CourseDetailsBasicComponent},
+      { path: 'advance', component: CourseDetailsAdvanceComponent},
+    ]
+  },
   { path: 'courses/edit/:id', component: EditCourseComponent, canActivate: [AuthGuard]},
   { path: '', redirectTo: 'login', pathMatch: 'full'}
 ];

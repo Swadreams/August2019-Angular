@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './admin/auth.service';
-import { Router } from '@angular/router';
+import { Router, NavigationStart } from '@angular/router';
 import { slideInAnimation} from './app.animation';
 
 @Component({
@@ -29,6 +29,16 @@ export class AppComponent implements OnInit {
             },
             error => console.log('Error occurred', error)
         )
+    // this.router.events.forEach((event) => {
+    //   if (event instanceof NavigationStart) {
+    //     if (event['url'] == '/login' || event['url'] == '/signup') {
+    //       this.isLoggedIn = false;
+    //     } else {
+    //       // console.log("NU")
+    //       this.isLoggedIn = true;
+    //     }
+    //   }
+    // });
   }
 
 }

@@ -16,11 +16,6 @@ import { AdminModule } from './admin/admin.module';
 import { environment } from 'src/environments/environment';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    HeaderComponent
-  ],
   imports: [
     BrowserModule,
     CourseModule,
@@ -34,6 +29,11 @@ import { environment } from 'src/environments/environment';
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)
 
+  ],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    HeaderComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
