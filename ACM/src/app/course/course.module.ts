@@ -9,6 +9,7 @@ import { EditCourseComponent } from './edit-course/edit-course.component';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SummaryPipe } from './shared/summary.pipe';
+import { HighlightDirective } from './shared/highlight.directive';
 
 
 
@@ -18,7 +19,8 @@ import { SummaryPipe } from './shared/summary.pipe';
     StarComponent,
     CourseDetailsComponent,
     EditCourseComponent,
-    SummaryPipe
+    SummaryPipe,
+    HighlightDirective
   ],
   imports: [
     CommonModule,
@@ -26,6 +28,6 @@ import { SummaryPipe } from './shared/summary.pipe';
     RouterModule,
     ReactiveFormsModule
   ],
-  exports: [ CourseListComponent ]
+  exports: [ CourseListComponent, HighlightDirective ]
 })
 export class CourseModule { }
