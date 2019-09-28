@@ -59,7 +59,11 @@
                     Description : 
                 </div>
                 <div class="col-sm-9">
-                    {{course.description}}
+                    {{course.description | summary : showMore}}
+                    <button class="btn btn-sm btn-outline-primary"
+                            (click)="showMore = !showMore">
+                        Show {{showMore ? "Less" : 'More'}}
+                    </button>
                 </div>
             </div>
         </div>
