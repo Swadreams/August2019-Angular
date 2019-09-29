@@ -1,6 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireModule } from 'angularfire2';
 
 import { CourseListComponent } from './course-list.component';
+import { StarComponent } from 'src/app/shared/star/star.component';
+import { environment } from 'src/environments/environment';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('CourseListComponent', () => {
   let component: CourseListComponent;
@@ -8,7 +15,17 @@ describe('CourseListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CourseListComponent ]
+      imports: [
+        RouterTestingModule,
+        HttpClientTestingModule,
+        AngularFireAuthModule,
+        AngularFireDatabaseModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig)
+      ],
+      declarations: [ 
+        CourseListComponent,
+        StarComponent
+      ]
     })
     .compileComponents();
   }));

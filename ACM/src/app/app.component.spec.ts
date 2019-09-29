@@ -9,7 +9,8 @@ import { AngularFireModule } from 'angularfire2';
 import { environment } from 'src/environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthService } from './admin/auth.service';
-import { of } from 'rxjs';
+import { of, throwError } from 'rxjs';
+import { RouterModule } from '@angular/router';
 
 describe('AppComponent', () => {
   let fixture;
@@ -23,7 +24,10 @@ describe('AppComponent', () => {
         RouterTestingModule,
         AngularFireAuthModule,
         AngularFireDatabaseModule,
-        AngularFireModule.initializeApp(environment.firebaseConfig)
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        RouterModule.forRoot([
+          {path: 'home', component: AppComponent}
+        ])
       ],
       declarations: [
         AppComponent,
@@ -47,11 +51,27 @@ describe('AppComponent', () => {
   });
 
 
+  it('should show header bar if user is logged in', () => {
+      let obj: any = {
+        user: true
+      }
+      spyOn(auth, 'isLoggedIn').and.returnValue(of(obj));
+      component.ngOnInit();
+      expect(component.isLoggedIn).toBe(true);
+  });
+
   it('should hide header bar if user is not logged in', () => {
-      spyOn(auth, 'isLoggedIn').and.returnValue(of());
+      let obj: any = null;
+      spyOn(auth, 'isLoggedIn').and.returnValue(of(obj));
       component.ngOnInit();
       expect(component.isLoggedIn).toBeFalsy();
   });
+
+  it('should log error in console if error occured', ()=> {
+      spyOn(auth, 'isLoggedIn').and.returnValue(throwError('error'));
+      component.ngOnInit();
+      expect(component.isLoggedIn).toBeFalsy();
+  })
 
   // it('should render title', () => {
   //   const fixture = TestBed.createComponent(AppComponent);
